@@ -1,0 +1,5 @@
+.collapse .navbar-collapse{
+    justify-content: end;
+    display: flex;
+    
+}

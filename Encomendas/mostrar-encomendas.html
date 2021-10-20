@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <title>Encomendas</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Logo</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Categorias
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="../Categorias/cadastrar-categorias.html">Cadastrar</a></li>
+                  <li><a class="dropdown-item" href="../Categorias/editar-categorias.html">Editar</a></li>
+                  <li><a class="dropdown-item" href="../Categorias/mostrar-categorias.html">Mostrar</a></li>
+                  <li><a class="dropdown-item" href="../Categorias/pesquisar-categorias.html">Pesquisar</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Clientes
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="../Clientes/cadastrar-clientes.html">Cadastrar</a></li>
+                  <li><a class="dropdown-item" href="../Clientes/editar-clientes.html">Editar</a></li>
+                  <li><a class="dropdown-item" href="../Clientes/mostrar-clientes.html">Mostrar</a></li>
+                  <li><a class="dropdown-item" href="../Clientes/pesquisar-clientes.html">Pesquisar</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Encomendas
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="../Encomendas/cadastrar-encomendas.html">Cadastrar</a></li>
+                  <li><a class="dropdown-item" href="../Encomendas/editar-encomendas.html">Editar</a></li>
+                  <li><a class="dropdown-item" href="../Encomendas/mostrar-encomendas.html">Mostrar</a></li>
+                  <li><a class="dropdown-item" href="../Encomendas/pesquisar-encomendas.html">Pesquisar</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Produtos
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="../Produtos/cadastrar-produtos.html">Cadastrar</a></li>
+                  <li><a class="dropdown-item" href="../Produtos/editar-produtos.html">Editar</a></li>
+                  <li><a class="dropdown-item" href="../Produtos/mostrar-produtos.html">Mostrar</a></li>
+                  <li><a class="dropdown-item" href="../Produtos/pesquisar-produtos.html">Pesquisar</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Promoções
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="../Promocoes/cadastrar-promocoes.html">Cadastrar</a></li>
+                  <li><a class="dropdown-item" href="../Promocoes/editar-promocoes.html">Editar</a></li>
+                  <li><a class="dropdown-item" href="../Promocoes/mostrar-promocoes.html">Mostrar</a></li>
+                  <li><a class="dropdown-item" href="../Promocoes/pesquisar-promocoes.html">Pesquisar</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Vendas
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="../Vendas/cadastrar-vendas.html">Cadastrar</a></li>
+                  <li><a class="dropdown-item" href="../Vendas/editar-vendas.html">Editar</a></li>
+                  <li><a class="dropdown-item" href="../Vendas/mostrar-vendas.html">Mostrar</a></li>
+                  <li><a class="dropdown-item" href="../Vendas/pesquisar-vendas.html">Pesquisar</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form class="d-flex">
+                <a class="nav-link" href="../index.html" style="color: white;">Sair</a>
+            </form>
+          </div>
+        </div>
+      </nav>
+    <div class="container" style="height: 77.6vh;">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="display-3 mt-2 mb-2 text-center">Mostrar Encomendas</h1>
+        </div>
+
+        <div class="row mt-5 text-center">
+        <table class="table-borderless">
+            <thead>
+              <tr>
+                <th scope="col">Código</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Quantidade</th>
+                <th scope="col">Preço</th>
+                <th scope="col">Desconto</th>
+                <th scope="col">Total</th>
+                <th scope="col">Prestador</th>
+                <th scope="col">Data do Pagamento</th>
+                <th scope="col">Data do recebimento</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>123</td>
+                <td>Leite</td>
+                <td>2</td>
+                <td>2.05</td>
+                <td>10%</td>
+                <td>R$3.69</td>
+                <td>Administrador</td>
+                <td>2021-08-18</td>
+                <td>2021-08-25</td>
+                <td><Button class="btn btn-warning btn-large">Editar</Button></td>
+                <td><Button class="btn btn-danger btn-large">Deletar</Button></td>
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+    </div>
+    </div>
+
+    <div id="div-footer">
+        <footer class="bg-dark text-center text-white">
+          <!-- Grid container -->
+          <div class="container p-4 pb-0">
+            <!-- Section: Social media -->
+            <section class="mb-4">
+              <!-- Facebook -->
+              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+        
+              <!-- Twitter -->
+              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                ><i class="fab fa-twitter"></i
+              ></a>
+        
+              <!-- Google -->
+              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                ><i class="fab fa-google"></i
+              ></a>
+        
+              <!-- Instagram -->
+              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                ><i class="fab fa-instagram"></i
+              ></a>
+        
+              <!-- Linkedin -->
+              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+        
+              <!-- Github -->
+              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                ><i class="fab fa-github"></i
+              ></a>
+            </section>
+            <!-- Section: Social media -->
+          </div>
+          <!-- Grid container -->
+        
+          <!-- Copyright -->
+          <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2020 Copyright:
+            <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+          </div>
+          <!-- Copyright -->
+        </footer>
+      </div>
+    </body>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+  </body>
+</html>

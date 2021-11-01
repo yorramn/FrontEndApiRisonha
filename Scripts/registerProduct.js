@@ -12,7 +12,7 @@ function registerProduct() {
         let fab = document.querySelector("#fabricante").value
         let preco = document.querySelector("#preco").value
         let tipocate = document.querySelector("#tipocategoria").value
-        
+
         const product = {
             codigo: codigo,
             nome: nome,
@@ -30,39 +30,34 @@ function registerProduct() {
             const settings = {
                 method: 'POST',
                 headers: {
-
                     Accept: 'application/json',
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + window.localStorage.getItem("token")
                 },
-
                 body: JSON.stringify(product)
             }
             try {
                 const fetchResponse = await fetch('http://risonhaapi.herokuapp.com/api/produto', settings)
                 const data = await fetchResponse.json()
-                console.log(data)
+                alert(data.message);
             } catch (e) {
                 return e
             }
         }
-
         requestApi()
-
     })
-
 }
 
 registerProduct()
 
 
-function showCategory(){
+function showCategory() {
+
     const select = document.querySelector('#tipocategoria')
     requestApi = async () => {
         const settings = {
             method: 'GET',
             headers: {
-
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + window.localStorage.getItem("token")
@@ -73,12 +68,12 @@ function showCategory(){
             const fetchResponse = await fetch('http://risonhaapi.herokuapp.com/api/categoria', settings)
             const data = await fetchResponse.json()
             let datapro = data.objeto
-            
-            for(let num = 0; num<datapro.length; num++){
+
+            for (let num = 0; num < datapro.length; num++) {
                 select.options[select.options.length] = new Option(datapro[num].nome, datapro[num].id);
-                
+
             }
-            
+
         } catch (e) {
             return e
         }
@@ -86,6 +81,3 @@ function showCategory(){
 
     requestApi()
 }
-    
-
-    

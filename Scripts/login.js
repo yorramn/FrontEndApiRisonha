@@ -15,10 +15,8 @@ function login(){
             method: 'POST',
             headers: {
                 Accept: 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' +window.localStorage.getItem("token")
+                'Content-Type': 'application/json'
             },
-            
             body: JSON.stringify(login)
         }
         try {
@@ -27,7 +25,7 @@ function login(){
             const token = data.token;
             window.localStorage.setItem("token",token)
             if(data.user.email == login.email){
-                window.location.replace("Cliente/pesquisar-cliente.html")
+                window.location.replace("Produtos/cadastrar-produtos.html")
             }
         } catch (e) {
             return e

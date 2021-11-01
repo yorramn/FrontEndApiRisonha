@@ -8,12 +8,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
 
-    <style>
-
-      #div-footer{
-        
-      }
-    </style>
+    <script>
+      window.localStorage.getItem("token") == null ? window.location.replace("../index.html") : null
+    </script>
 </head>
 
 <body onload="showCategory(),showCampProducts()">
@@ -93,7 +90,7 @@
           </li>
         </ul>
         <form class="d-flex">
-            <a class="nav-link" href="../index.html" style="color: white;">Sair</a>
+            <a class="nav-link" onclick="removeToken()" href="../index.html" style="color: white;">Sair</a>
         </form>
       </div>
     </div>
@@ -162,7 +159,7 @@
       <div class="col-12 d-grid gap-2 d-md-flex justify-content-md-end mt-5">
         <button type="button" class="btn btn-dark">Cancelar</button>
         <button type="reset" class="btn btn-dark" id="limpar">Limpar</button>
-        <button type="button" class="btn btn-dark" id="atualizar">Atualizar</button>
+        <button type="button" onclick="" class="btn btn-dark" id="atualizar">Atualizar</button>
       </div>
     </form>
   </div>
@@ -217,7 +214,12 @@
 </div>
 
 <!-- Footer -->
-
+<script>
+  removeToken = ()=>{
+    window.localStorage.removeItem("token");
+    window.location.replace("../index.html")
+  }
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 <script src="../Scripts/editProducts.js"></script>
 </body>

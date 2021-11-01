@@ -72,27 +72,22 @@ function updateProduct() {
             const settings = {
                 method: 'PUT',
                 headers: {
-
                     Accept: 'application/json',
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + window.localStorage.getItem("token")
                 },
-
                 body: JSON.stringify(product)
             }
             try {
                 const fetchResponse = await fetch('http://risonhaapi.herokuapp.com/api/produto/'+urlid, settings)
                 const data = await fetchResponse.json()
-                
+                alert(data.message)
             } catch (e) {
                 return e
             }
         }
-
         requestApi()
-
     })
-
 }
 
 updateProduct()
@@ -103,7 +98,6 @@ function showCategory(){
         const settings = {
             method: 'GET',
             headers: {
-
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + window.localStorage.getItem("token")
@@ -114,16 +108,12 @@ function showCategory(){
             const fetchResponse = await fetch('http://risonhaapi.herokuapp.com/api/categoria', settings)
             const data = await fetchResponse.json()
             let datapro = data.objeto
-           
             for(let num = 0; num<=datapro.length; num++){
                 select.options[select.options.length] = new Option(datapro[num].nome, datapro[num].id);
-                
             }
-            
         } catch (e) {
             return e
         }
     }
-
     requestApi()
 }

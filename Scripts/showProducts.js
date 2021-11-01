@@ -30,8 +30,8 @@ function showProduct() {
                 content += "<td>"+ datapro[num].tipo_de_peso +"</td>"
                 content += "<td>"+ datapro[num].preco +"</td>"
                 content += "<td>"+ datapro[num].categoria_id +"</td>"
-                content += "<td><a href='../produto/editar-produtos.html?id="+datapro[num].id+"'"+"><Button class='btn btn-warning btn-large'>Editar</Button></a></td>"
-                content += "<td><a href='../produto/mostrar-produtos.html?id="+datapro[num].id+"'"+"><Button class='btn btn-danger btn-large' onclick='deleteProduct()'>Deletar</Button></a></td>"
+                content += "<td><a href='../Produtos/editar-produtos.html?id="+datapro[num].id+"'"+"><Button class='btn btn-warning btn-large'>Editar</Button></a></td>"
+                content += "<td><a href='../Produtos/mostrar-produtos.html?id="+datapro[num].id+"'"+"><Button class='btn btn-danger btn-large' onclick='deleteProduct()'>Deletar</Button></a></td>"
                 content += "</tr>"
                 
                 document.querySelector("#tablecontent").innerHTML += content

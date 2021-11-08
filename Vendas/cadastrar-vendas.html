@@ -109,11 +109,25 @@
           <div class="col-md-1 mt-5">
             <button type="button" class="btn btn-dark" id="btnpesquisar">+</button>
           </div>
-          <div class="col-md-9">
+          <div class="col-md-9 container text-center">
+            <div class="row">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Código</th>
+                    <th>Nome</th>
+                    <th>Preço</th>
+                    <th>Qtde</th>
+                  </tr>
+                </thead>
+                <tbody id="tablecontent">
 
+                </tbody>
+              </table>
+            </div>
           </div>
-          <div class="col-md-3 mt-5" id="resultado">
-           <h3>Resultado:</h3>   
+          <div class="col-md-3 mt-5 text-success ps-4" >
+           <h3>R$ <strong id="resultado"></strong></h3>   
           </div>
           <div class="col-md-3">
             <label for="CodigoPro" class="form-label">Código da Promoção</label>
@@ -123,7 +137,7 @@
             <label for="CPF" class="form-label">CPF do Cliente</label>
             <input type="text" class="form-control" id="CPF" name="cpf">
           </div>
-          
+
     
           <div class="col-6 d-grid gap-2 d-md-flex justify-content-md-end mt-5">
             <button type="button" class="btn btn-dark">Cancelar</button>

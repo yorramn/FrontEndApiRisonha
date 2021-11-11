@@ -3,6 +3,7 @@ let nomes = []
 let quantidade_itens = []
 let precos = []
 let total = 0
+let codigo = null;
 
 document.querySelector("#tablecontent").innerHTML = ""
 
@@ -31,9 +32,9 @@ function registerOrder() {
         try {
             const fetchResponse = await fetch('http://risonhaapi.herokuapp.com/api/venda', settings)
             const data = await fetchResponse.json()
-            console.log(data)
+            alert(data.message)
         } catch (e) {
-            return e
+            alert(data.message)
         }
     }
     requestApi()
@@ -58,19 +59,28 @@ function showProduct() {
             let datapro = data.produtos
             for (let num = 0; num <= datapro.length; num++) {
                 if (datapro[num].codigo == code) {
-                    codigos.push(datapro[num].codigo)
-                    quantidade_itens.push(quant)
-                    nomes.push(datapro[num].nome)
-                    precos.push(datapro[num].preco)
-                    document.querySelector("#tablecontent").innerHTML +=
-                        `<tr>
-                        <td>${datapro[num].codigo}</td>
-                        <td>${datapro[num].nome}</td>
-                        <td>R$ ${datapro[num].preco}</td>
-                        <td>${quant}</td>
-                    </tr>`
-                    total += datapro[num].preco * quant
-                    resultado.innerHTML = total
+                    if (codigos.length > 0 && codigos[num] == code) {
+                        alert('Produto já inserido! Insira outro ou altere a quantidade desejada')
+                    } else {
+                        codigos.push(datapro[num].codigo)
+                        quantidade_itens.push(quant)
+                        nomes.push(datapro[num].nome)
+                        precos.push(datapro[num].preco)
+                        document.querySelector("#tablecontent").innerHTML +=
+                            `<tr id="linha${datapro[num].id}">
+                                <td>${datapro[num].codigo}</td>
+                                <td>${datapro[num].nome}</td>
+                                <td>R$ ${datapro[num].preco}</td>
+                                <td>${quant}</td>
+                                <td>
+                                    <button class="btn btn-outline-danger" id="remove" onclick="remove(${datapro[num].id},${datapro[num].codigo},${datapro[num].preco},${quant})">
+                                        Remove
+                                    </button>
+                                </td>
+                            </tr>`
+                        total += datapro[num].preco * quant
+                        resultado.innerHTML = total
+                    }
                 }
             }
             alert(data.mensagem)
@@ -79,6 +89,17 @@ function showProduct() {
         }
     }
     requestApi()
+}
+
+function remove(id, codigo, preco, quantidade) {
+    document.querySelector("#linha" + id).remove()
+    total -= preco * quantidade
+    document.querySelector("#resultado").innerHTML = total
+    for (let i = 0; i < codigos.length; i++){
+        if(codigo == codigos[i]){
+            codigos.splice(i,1)
+        }
+    }
 }
 document.querySelector("#btncadastrar").addEventListener("click", function (e) {
     e.preventDefault()

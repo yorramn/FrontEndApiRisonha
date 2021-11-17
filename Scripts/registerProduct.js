@@ -65,15 +65,12 @@ function showCategory() {
 
         }
         try {
-            const fetchResponse = await fetch('http://risonhaapi.herokuapp.com/api/categoria', settings)
+            const fetchResponse = await fetch('http://risonhaapi.herokuapp.com/api/categoria/listar', settings)
             const data = await fetchResponse.json()
             let datapro = data.objeto
-
             for (let num = 0; num < datapro.length; num++) {
                 select.options[select.options.length] = new Option(datapro[num].nome, datapro[num].id);
-
             }
-
         } catch (e) {
             return e
         }

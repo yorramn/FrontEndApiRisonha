@@ -13,7 +13,7 @@
     </script>
 </head>
 
-<body onload="showCategory(),showCampProducts()">
+<body onload="showCampProducts()">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Logo</a>
@@ -149,9 +149,8 @@
       </div>
       <div class="col-md-6">
         <label for="tipoquantidade" class="form-label">Tipo de categoria</label>
-        <select id="tipocategoria" class="form-select" name="tipo-de-quantidade">
+        <select id="tipocategoria" class="form-select" name="categoria_id">
           <option selected disabled>Escolha a categoria</option>
-          <option></option>
         </select>
       </div>
       <a href="#" class="text-end">Não tem a categoria que busca? Adicione uma</a>
@@ -159,7 +158,7 @@
       <div class="col-12 d-grid gap-2 d-md-flex justify-content-md-end mt-5">
         <button type="button" class="btn btn-dark">Cancelar</button>
         <button type="reset" class="btn btn-dark" id="limpar">Limpar</button>
-        <button type="button" onclick="" class="btn btn-dark" id="atualizar">Atualizar</button>
+        <button type="button" onclick="updateProduct()" class="btn btn-dark" id="atualizar">Atualizar</button>
       </div>
     </form>
   </div>

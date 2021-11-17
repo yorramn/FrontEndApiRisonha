@@ -7,12 +7,13 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
     <script>
       window.localStorage.getItem("token") == null ? window.location.replace("../index.html") : null
     </script>
-    <title>Clientes</title>
+    <title>Produtos</title>
   </head>
-  <body>
+  <body onload="showClients()">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Logo</a>
@@ -95,44 +96,28 @@
       </div>
     </nav>
     <div class="container" style="height: 77.6vh;">
-    <div class="row">
-        <div class="col-md-12">
-            <h1 class="display-3 mt-5 mb-5 text-center">Mostrar clientes</h1>
-        </div>
+      <h3 class="display-3 mt-2 mb-2 text-center" id="nonText">Mostrar Clientes</h3>
+    <div class="row" id="displayContent">
 
         <div class="row mt-5 text-center">
         <table class="table-borderless">
-            <thead>
-              <tr>
-                <th scope="col">Nome</th>
-                <th scope="col">CPF</th>
-                <th scope="col">Email</th>
-                <th scope="col">CEP</th>
-                <th scope="col">Logradouro</th>
-                <th scope="col">Número</th>
-                <th scope="col">Cidade</th>
-                <th scope="col">Telefone</th>
-                
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Gabriel Santos</td>
-                <td>958746373</td>
-                <td>santos@santos.com</td>
-                <td>08120490</td>
-                <td>Rua Doutor João Procópio de Souza</td>
-                <td>228</td>
-                <td>São Paulo</td>
-                <td>11940028922</td>
-                <td><Button class="btn btn-warning btn-large">Editar</Button></td>
-                <td><Button class="btn btn-danger btn-large">Deletar</Button></td>
-              </tr>
+          <thead>
+            <tr>
+              <th scope="col">Nome</th>
+              <th scope="col">CPF</th>
+              <th scope="col">Email</th>
+              <th scope="col">CEP</th>
+              <th scope="col">Logradouro</th>
+              <th scope="col">Número</th>
+              <th scope="col">Cidade</th>
+              <th scope="col">Telefone</th>
               
+            </tr>
+          </thead>
+            <tbody  id="tablecontent">
+         
             </tbody>
           </table>
-          <a href="#" class="text-end mt-3">Buscando por algum cliente específico?</a>
-
         </div>
     </div>
     </div>
@@ -188,5 +173,7 @@
     </body>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <script src="../Scripts/showClients.js"></script>
+
   </body>
 </html>

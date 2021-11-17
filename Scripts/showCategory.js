@@ -3,14 +3,13 @@ function showCategory() {
         const settings = {
             method: 'GET',
             headers: {
-
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + window.localStorage.getItem("token")
             },
         }
         try {
-            const fetchResponse = await fetch('http://risonhaapi.herokuapp.com/api/categoria', settings)
+            const fetchResponse = await fetch('http://risonhaapi.herokuapp.com/api/categoria/listar', settings)
             const data = await fetchResponse.json()
             let datacat = data.objeto
 

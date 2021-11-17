@@ -2,22 +2,19 @@ let url_string = window.location.href
 let url = new URL(url_string)
 let urlid = url.searchParams.get("id")
 
-function showClient(){
+function showClient() {
 
     requestApi = async () => {
         const settings = {
             method: 'GET',
             headers: {
-
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + window.localStorage.getItem("token")
             },
-
-            
         }
         try {
-            const fetchResponse = await fetch('http://risonhaapi.herokuapp.com/api/cliente/'+urlid, settings)
+            const fetchResponse = await fetch('http://risonhaapi.herokuapp.com/api/cliente/' + urlid, settings)
             const data = await fetchResponse.json()
             document.querySelector("#Nome").value = data.objeto.nome
             document.querySelector("#CPF").value = data.objeto.cpf
@@ -27,9 +24,7 @@ function showClient(){
             document.querySelector("#Cidade").value = data.objeto.cidade
             document.querySelector("#Telefone").value = data.objeto.telefone
             document.querySelector("#Email").value = data.objeto.email
-            
         } catch (e) {
-            return e
         }
     }
 
@@ -75,12 +70,11 @@ function updateClient() {
                 body: JSON.stringify(client)
             }
             try {
-                const fetchResponse = await fetch('http://risonhaapi.herokuapp.com/api/cliente/'+urlid, settings)
+                const fetchResponse = await fetch('http://risonhaapi.herokuapp.com/api/cliente/' + urlid, settings)
                 const data = await fetchResponse.json()
-                console.log(data)
-                
+                alert(data.message)
             } catch (e) {
-                return e
+                alert(data.message)
             }
         }
 
@@ -92,8 +86,8 @@ function updateClient() {
 
 updateClient()
 
-function cleanInput(){
-    document.querySelector("#limpar").addEventListener("click",() => {
+function cleanInput() {
+    document.querySelector("#limpar").addEventListener("click", () => {
         document.querySelector("#Nome").value = ""
         document.querySelector("#CPF").value = ""
         document.querySelector("#Email").value = ""

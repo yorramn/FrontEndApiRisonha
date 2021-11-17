@@ -2,25 +2,56 @@ let url_string = window.location.href
 let url = new URL(url_string)
 let urlid = url.searchParams.get("id")
 
-function showCampProducts(){
+function showCategory(id){
+    const select = document.querySelector('#tipocategoria')
+    requestApi = async () => {
+        const settings = {
+            method: 'GET',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + window.localStorage.getItem("token")
+            },
+        }
+        try {
+            const fetchResponse = await fetch('http://risonhaapi.herokuapp.com/api/categoria/'+id, settings)
+            const categoria = await fetchResponse.json()
 
+            const categoriasFetchResponse = await fetch('http://risonhaapi.herokuapp.com/api/categoria/listar', settings)
+            const categorias = await categoriasFetchResponse.json()
+
+            console.log(categorias)
+            for(let num = 0; num< categorias.objeto.length; num++){
+                // select.options[select.options.length] = new Option(datapro[num].nome, datapro[num].id);
+                if(categoria.objeto.id == categorias.objeto[num].id){
+                    select.options[select.options.length] = new Option(categoria.objeto.nome, categoria.objeto.id, true, true);    
+                }else{
+                    select.options[select.options.length] = new Option(categorias.objeto[num].nome, categorias.objeto[num].id);
+                }
+                
+            }
+        } catch (e) {
+            return e
+        }
+    }
+    requestApi()
+}
+
+
+function showCampProducts(){
         requestApi = async () => {
             const settings = {
                 method: 'GET',
                 headers: {
-
                     Accept: 'application/json',
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + window.localStorage.getItem("token")
                 },
-
-                
             }
             try {
                 const fetchResponse = await fetch('http://risonhaapi.herokuapp.com/api/produto/'+urlid, settings)
                 const data = await fetchResponse.json()
-                datapro = data.objeto
-                
+                let datapro = data.objeto
                 document.querySelector("#Codigo").value = datapro.codigo
                 document.querySelector("#Nome").value = datapro.nome
                 document.querySelector("#Datavalidade").value = datapro.data_de_validade
@@ -30,8 +61,7 @@ function showCampProducts(){
                 document.querySelector("#tipopeso").value = datapro.tipo_de_peso
                 document.querySelector("#fabricante").value = datapro.fabricante
                 document.querySelector("#preco").value = datapro.preco
-                
-                
+                showCategory(datapro.categoria_id)
             } catch (e) {
                 return e
             }
@@ -83,37 +113,10 @@ function updateProduct() {
                 const data = await fetchResponse.json()
                 alert(data.message)
             } catch (e) {
-                return e
+                console.log(e)
             }
         }
         requestApi()
     })
 }
 
-updateProduct()
-
-function showCategory(){
-    const select = document.querySelector('#tipocategoria')
-    requestApi = async () => {
-        const settings = {
-            method: 'GET',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + window.localStorage.getItem("token")
-            },
-
-        }
-        try {
-            const fetchResponse = await fetch('http://risonhaapi.herokuapp.com/api/categoria', settings)
-            const data = await fetchResponse.json()
-            let datapro = data.objeto
-            for(let num = 0; num<=datapro.length; num++){
-                select.options[select.options.length] = new Option(datapro[num].nome, datapro[num].id);
-            }
-        } catch (e) {
-            return e
-        }
-    }
-    requestApi()
-}

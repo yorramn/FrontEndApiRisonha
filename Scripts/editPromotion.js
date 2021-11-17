@@ -70,9 +70,9 @@ function updatePromotion() {
             try {
                 const fetchResponse = await fetch('http://risonhaapi.herokuapp.com/api/promocao/'+urlid, settings)
                 const data = await fetchResponse.json()
-               
+                alert(data.message)
             } catch (e) {
-                return e
+                alert(data.message)
             }
         }
 
